@@ -1,0 +1,1025 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>SOAPDS</title>
+	
+<link rel="stylesheet" type="text/css" href="Styles/AgroCraft.css">	
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Infant&display=swap" rel="stylesheet">
+
+</head>
+
+<body >
+	
+	<h5><div id ="WELCOME">WELCOME TO AgroNGO <div id="are">YOU ARE A...</div></h5>
+	<span id="linebreak"></span>
+	<label id="Farmerbutton"><a id = "link" href="auth/FarmerLogin.php">FARMER</a></label>
+	<label id="Buyerbutton"><a id = "link" href="auth/BuyerLogin.php">BUYER</a></label>
+	<label id="Buyerbutton"><a id = "link" href="admins">ADMIN</a></label>
+	
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroNGO</title>
+    <link rel="stylesheet" type="text/css" href="Styles/AgroCraft.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #81C784;
+			--trenary-color:rgb(80, 147, 255);
+            --accent-color: #FF8F00;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+			background-image:url(./Images/Website/back.jpg); 
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+		.btn-trenary {
+            background-color: var(--trenary-color);
+            color: white;
+            border: 2px solid var(--trenary-color);
+        }
+        
+        .btn-trenary:hover {
+            background-color: transparent;
+            color: var(--trenary-color);
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            color: var(--dark-color);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/500') center/cover no-repeat; */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+			color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .user-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .user-options h5 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .user-options #WELCOME {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Infant', serif;
+        }
+        
+        .user-options #are {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+        
+        .user-options label {
+            display: inline-block;
+            margin: 0 15px;
+            background-color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .user-options label:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .user-options #Buyerbutton {
+            background-color: var(--accent-color);
+        }
+        
+        .user-options #Buyerbutton:hover {
+            background-color: #FFA726;
+        }
+        
+        .user-options a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        /* Feature Section */
+        .features {
+			background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* User Types */
+        .user-types {
+			background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+            padding: 80px 0;
+        }
+        
+        .user-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .user-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .user-image {
+            height: 200px;
+            position: relative;
+        }
+        
+        .user-content {
+            padding: 25px;
+        }
+        
+        .user-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .user-content ul {
+            margin-top: 15px;
+            list-style: disc;
+            padding-left: 20px;
+        }
+        
+        .user-content ul li {
+            margin-bottom: 8px;
+        }
+        
+        .user-content .btn {
+            margin-top: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(24, 70, 30, 0.5))
+        }
+        
+        .testimonial-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        /* .testimonial-text:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            color: #e0e0e0;
+            z-index: 0;
+        } */
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+			justify-content: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-role {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .login-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .login-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .login-tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .user-options {
+                flex-direction: column;
+            }
+            
+            .user-options label {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 5C16.5 5 13.5 6 11 8.5C8.5 11 7 14.5 7 18C7 21.5 8.5 25 11 27.5C13.5 30 16.5 31 20 31C23.5 31 26.5 30 29 27.5C31.5 25 33 21.5 33 18C33 14.5 31.5 11 29 8.5C26.5 6 23.5 5 20 5Z" fill="#4CAF50"/>
+                    <path d="M20 10C18.5 10 17 10.5 16 11.5C15 12.5 14.5 14 14.5 15.5C14.5 17 15 18.5 16 19.5C17 20.5 18.5 21 20 21C21.5 21 23 20.5 24 19.5C25 18.5 25.5 17 25.5 15.5C25.5 14 25 12.5 24 11.5C23 10.5 21.5 10 20 10Z" fill="white"/>
+                    <path d="M9 32C7.5 32 6 32.5 5 33.5C4 34.5 3.5 36 3.5 37.5C3.5 39 4 40.5 5 41.5C6 42.5 7.5 43 9 43C10.5 43 12 42.5 13 41.5C14 40.5 14.5 39 14.5 37.5C14.5 36 14 34.5 13 33.5C12 32.5 10.5 32 9 32Z" fill="#81C784"/>
+                    <path d="M31 32C29.5 32 28 32.5 27 33.5C26 34.5 25.5 36 25.5 37.5C25.5 39 26 40.5 27 41.5C28 42.5 29.5 43 31 43C32.5 43 34 42.5 35 41.5C36 40.5 36.5 39 36.5 37.5C36.5 36 36 34.5 35 33.5C34 32.5 32.5 32 31 32Z" fill="#81C784"/>
+                </svg>
+                <h1>AgroNGO</h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#user-types">Users</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <!-- <li><a href="#about">About Us</a></li> -->
+            </ul>
+            
+            <div class="auth-buttons">
+                <a href="admins" class="btn btn-trenary">ADMIN</a>
+                <!-- <a href="auth/BuyerLogin.php" class="btn btn-primary">Sign Up</a> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Connecting Farmers Directly to Consumers</h2>
+            <p>Eliminating middlemen to ensure farmers receive fair prices while consumers get quality products. Join our mission to create a sustainable and equitable food system.</p>
+            
+            <div class="user-options">
+                <h5><div id="WELCOME">WELCOME TO AgroNGO <div id="are">YOU ARE A...</div></h5>
+                <span id="linebreak"></span>
+                <div style="display: flex; gap: 20px; margin-top: 20px;">
+                    <a href="auth/FarmerLogin.php" class="btn btn-primary">FARMER</a></label>
+                    <a href="auth/BuyerLogin.php" class="btn btn-secondary">BUYER</a></label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose AgroNGO?</h2>
+                <p>Our platform is designed to create a fair and sustainable agricultural marketplace that benefits everyone involved.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2H5C3.9,3,3,3.9,3,5z M15,9c0,1.66-1.34,3-3,3 s-3-1.34-3-3s1.34-3,3-3S15,7.34,15,9z M6,17c0-2,4-3.1,6-3.1s6,1.1,6,3.1v1H6V17z"/>
+                        </svg>
+                    </div>
+                    <h3>Direct Marketing</h3>
+                    <p>Connect directly with consumers and build lasting relationships without intermediaries cutting into your profits.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M21.41,11.58l-9-9C12.05,2.22,11.55,2,11,2H4C2.9,2,2,2.9,2,4v7c0,0.55,0.22,1.05,0.59,1.42l9,9 C12.05,21.78,12.55,22,13,22c0.55,0,1.05-0.22,1.41-0.59l7-7C21.78,14.05,22,13.55,22,13C22,12.45,21.78,11.95,21.41,11.58z M5.5,7 C4.67,7,4,6.33,4,5.5S4.67,4,5.5,4S7,4.67,7,5.5S6.33,7,5.5,7z"/>
+                        </svg>
+                    </div>
+                    <h3>Fair Pricing</h3>
+                    <p>Farmers receive fair compensation for their hard work while consumers pay reasonable prices for quality products.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M16.53,11.06L15.47,10l-4.88,4.88l-2.12-2.12l-1.06,1.06L10.59,17L16.53,11.06z M19,3h-1V1h-2v2H8V1H6v2H5 C3.89,3,3.01,3.9,3.01,5L3,19c0,1.1,0.89,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V8h14V19z"/>
+                        </svg>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Our platform ensures high-quality, fresh produce by maintaining strict standards and transparent practices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M13.88,11.54l-4.96,4.96 l-1.41-1.41l4.96-4.96L10.34,8l5.65,0.01L16,13.66L13.88,11.54z"/>
+                        </svg>
+                    </div>
+                    <h3>Reduced Food Waste</h3>
+                    <p>We work together to minimize food waste by connecting surplus produce with those in need through our network.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+                        </svg>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Build meaningful connections in your community and participate in food distribution initiatives to help those in need.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M10,17l-4-4l1.41-1.41L10,14.17l6.59-6.59L18,9L10,17 z"/>
+                        </svg>
+                    </div>
+                    <h3>Trust & Transparency</h3>
+                    <p>Our platform promotes transparency in all transactions, building trust between producers and consumers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Types -->
+    <section class="user-types" id="user-types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who Benefits from AgroNGO</h2>
+                <p>Our platform serves multiple stakeholders in the agricultural ecosystem, providing unique benefits to each.</p>
+            </div>
+            
+            <div class="user-cards">
+                <div class="user-card">
+                    <div class="user-image">
+                        <img src="./Images/Website/farmer2.jpg" width="240px" alt="Farmer using AgroNGO platform">
+                    </div>
+                    <div class="user-content">
+                        <h3>For Farmers</h3>
+                        <p>Get fair prices for your products and build direct relationships with your customers.</p>
+                        <ul>
+                            <li>List your products easily</li>
+                            <li>Receive fair compensation</li>
+                            <li>Reduce wastage of surplus produce</li>
+                            <li>Build loyal customer base</li>
+                            <li>Access market insights</li>
+                        </ul>
+                        <a href="auth/FarmerRegister.php" class="btn btn-primary">Join as Farmer</a>
+                    </div>
+                </div>
+                
+                <div class="user-card">
+                    <div class="user-image">
+                        <img src="./Images/Website/consumer.png" width="200px" style="padding-top: 10px;" alt="Consumer using AgroNGO platform">
+                    </div>
+                    <div class="user-content">
+                        <h3>For Consumers</h3>
+                        <p>Access fresh, quality products directly from local farmers at reasonable prices.</p>
+                        <ul>
+                            <li>Buy fresh, local produce</li>
+                            <li>Know where your food comes from</li>
+                            <li>Support local agriculture</li>
+                            <li>Get reasonable prices</li>
+                            <li>Participate in food sharing</li>
+                        </ul>
+                        <a href="auth/BuyerRegistration.php" class="btn btn-secondary">Join as Consumer</a>
+                    </div>
+                </div>
+                
+                <!-- <div class="user-card">
+                    <div class="user-image">
+                        <img src="/api/placeholder/400/200" alt="Admin using AgroNGO platform">
+                    </div>
+                    <div class="user-content">
+                        <h3>For Admins</h3>
+                        <p>Manage the platform, ensure quality standards, and coordinate distribution efforts.</p>
+                        <ul>
+                            <li>Monitor transactions</li>
+                            <li>Ensure quality standards</li>
+                            <li>Resolve disputes</li>
+                            <li>Coordinate food distribution</li>
+                            <li>Generate impact reports</li>
+                        </ul>
+                        <a href="admins" class="btn btn-primary">Login as Admin</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from the farmers, consumers, and organizations who have benefited from our platform.</p>
+            </div>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>AgroNGO has transformed my farming business. I now receive fair prices for my produce and have built lasting relationships with my customers. The platform is easy to use and has helped me reduce waste significantly.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <!-- <img src="/api/placeholder/50/50" alt="Farmer testimonial" class="testimonial-avatar"> -->
+                        <div class="author-info">
+                            <h4>John Doe</h4>
+                            <p class="author-role">Small-scale Farmer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>As a consumer, I love knowing where my food comes from. The produce is always fresh and I feel good supporting local farmers. The prices are reasonable and the quality is exceptional!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <!-- <img src="/api/placeholder/50/50" alt="Consumer testimonial" class="testimonial-avatar"> -->
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p class="author-role">Local Consumer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Our NGO has been able to distribute fresh produce to food-insecure communities thanks to AgroNGO. The platform connects us directly with farmers who have surplus crops, making our work more efficient and impactful.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <!-- <img src="/api/placeholder/50/50" alt="NGO testimonial" class="testimonial-avatar"> -->
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p class="author-role">Food Relief Organization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Join Our Movement?</h2>
+            <p>Whether you're a farmer looking to reach more customers, a consumer wanting fresh local produce, or an organization interested in food distribution, AgroNGO has a place for you.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+                <a href="auth/FarmerRegister.php" class="btn btn-primary">Join as Farmer</a>
+                <a href="auth/BuyerRegistration.php" class="btn btn-secondary">Join as Consumer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>About AgroNGO</h3>
+                    <p>We're on a mission to create a fair and sustainable agricultural marketplace that benefits farmers, consumers, and communities alike.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#user-types">For Users</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Farmer Guides</a></li>
+                        <li><a href="#">Consumer FAQs</a></li>
+                        <li><a href="#">Sustainability Reports</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>123 Farm Road, Agricultural City</li>
+                        <li>info@agrongo.org</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>Monday - Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AgroNGO. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <!-- <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="login-tabs">
+                <div class="login-tab active" data-tab="farmer">Farmer Login</div>
+                <div class="login-tab" data-tab="buyer">Buyer Login</div>
+                <div class="login-tab" data-tab="admin">Admin Login</div>
+            </div>
+            
+            <form id="farmerForm" class="login-form">
+                <div class="form-group">
+                    <label for="farmerEmail">Email</label>
+                    <input type="email" id="farmerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="farmerPassword">Password</label>
+                    <input type="password" id="farmerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            
+            <form id="buyerForm" class="login-form" style="display: none;">
+                <div class="form-group">
+                    <label for="buyerEmail">Email</label>
+                    <input type="email" id="buyerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="buyerPassword">Password</label>
+                    <input type="password" id="buyerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-secondary">Login</button>
+            </form>
+            
+            <form id="adminForm" class="login-form" style="display: none;">
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Login Modal Functionality
+        const loginModal = document.getElementById('loginModal');
+        const loginTabs = document.querySelectorAll('.login-tab');
+        const loginForms = document.querySelectorAll('.login-form');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Show modal when login buttons are clicked
+        document.querySelectorAll('.auth-buttons a').forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (button.textContent === 'Login') {
+                    e.preventDefault();
+                    loginModal.style.display = 'flex';
+                }
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+        
+        // Tab switching
+        loginTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                loginTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all forms
+                loginForms.forEach(form => form.style.display = 'none');
+                // Show corresponding form
+                document.getElementById(`${tab.dataset.tab}Form`).style.display = 'block';
+            });
+        });
+        
+        // Form submission
+        loginForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Here you would typically handle the login logic
+                alert('Login functionality would be implemented here');
+                loginModal.style.display = 'none';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>
