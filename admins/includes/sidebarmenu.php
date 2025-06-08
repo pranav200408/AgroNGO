@@ -10,8 +10,13 @@
 										   <ul id="menu-academico-sub" >
 																			  </ul>
 										</li>
-									<li id="menu-academico" ><a href="manage-users.php"><i class="fa fa-users" aria-hidden="true"></i><span>Home</span><div class="clearfix"></div></a></li>
-									
+									<li id="menu-academico" ><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span><div class="clearfix"></div></a></li>
+									<li id="menu-academico" ><a href="manage-users.php"><i class="fa fa-users" aria-hidden="true"></i><span>Manage Users</span><div class="clearfix"></div></a></li>
+									<li>
+    <a href="runml.php">
+        <i class="fa fa-cogs"></i> <span>Send Mail</span>
+    </a>
+</li>
 																     
 									
 								  </ul>
