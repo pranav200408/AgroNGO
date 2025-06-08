@@ -563,7 +563,7 @@ margin-top:2%;
             <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
         <a class="float-left" href="bhome.php">
-            <img src="agro.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
+            <img src="AGRONGO.png" class="float-left mr-2 moblogo" alt="Logo" style="height:80px;">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -914,8 +914,8 @@ margin-top:2%;
                </div>
                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                         <p><u><a href="https://www.agrocraft.com/">AgroCraft Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                         <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.google.com" target="_blank">Agrotech</a></p>
+                         <p><u><a href="https://www.agrocraft.com/">AgroNGO</a></u> is a project Company for farmers and consumers</p>
+                         <p class="h6">All right Reversed.<a class="text-green ml-2" href="https://www.google.com" target="_blank">AgroNGO</a></p>
                     </div>
                     </hr>
                </div>
