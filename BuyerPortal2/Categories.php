@@ -515,7 +515,7 @@ include("../Functions/functions.php");
     <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
 </button>
 <a class="float-left" href="bhome.php">
-    <img src="agro.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
+    <img src="AGRONGO.png" class="float-left mr-2 moblogo" alt="Logo" style="height:80px;">
 </a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
